@@ -33,7 +33,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -42,7 +42,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -103,7 +103,28 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: Terrain_and_Props_1
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 423
+        width: 105
+        height: 110
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6230b4d988d851c41a26772adc879efa
+      internalID: 309234958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -114,7 +135,29 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Terrain_and_Props_1: 309234958
+      Terrain_and_Props_12: -399686753
+      Terrain_and_Props_10: -1299792745
+      Terrain_and_Props_14: 1250486744
+      Terrain_and_Props_6: 642971992
+      Terrain_and_Props_18: -1368262924
+      Terrain_and_Props_13: 636325242
+      Terrain_and_Props_3: -1252494300
+      Terrain_and_Props_4: 361056174
+      Terrain_and_Props_8: 1344503562
+      Terrain_and_Props_20: 92413463
+      Terrain_and_Props_19: 1260537705
+      Terrain_and_Props_21: 908267025
+      Terrain_and_Props_0: 145822540
+      Terrain_and_Props_7: -214866127
+      Terrain_and_Props_15: 724202334
+      Terrain_and_Props_11: 554010870
+      Terrain_and_Props_2: 1083398357
+      Terrain_and_Props_9: 881817610
+      Terrain_and_Props_17: -1421187047
+      Terrain_and_Props_16: -1207826539
+      Terrain_and_Props_5: 1397806270
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
