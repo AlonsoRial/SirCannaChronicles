@@ -36,6 +36,9 @@ public class CannaMovement : MonoBehaviour
         }
 
 
+        Animator.SetBool("running", Horizontal != 0.0f);
+
+
 
 
     }
