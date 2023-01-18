@@ -42,7 +42,7 @@ public class CannaMovement : MonoBehaviour
         Animator.SetBool("running", Horizontal != 0.0f);
 
         Debug.DrawRay(transform.position, Vector3.down * 0.2f, Color.red);
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
+        if (Physics2D.Raycast(transform.position, Vector3.down, 0.2f))
         {
             Grounded = true;
         }
