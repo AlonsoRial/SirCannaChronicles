@@ -10,10 +10,15 @@ public class CannaMovement : MonoBehaviour
 
     private float Horizontal;
 
-    
+    private Animator Animator;
+
+
     void Start()
     {
         Rigidbody2D = GetComponent<Rigidbody2D>();
+
+        Animator = GetComponent<Animator>();
+
     }
 
     // Update is called once per frame
