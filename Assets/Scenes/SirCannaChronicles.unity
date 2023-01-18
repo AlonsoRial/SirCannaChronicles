@@ -3186,6 +3186,7 @@ GameObject:
   - component: {fileID: 1367209488}
   - component: {fileID: 1367209487}
   - component: {fileID: 1367209486}
+  - component: {fileID: 1367209489}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3259,6 +3260,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1367209489
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1367209485}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 74c23fe20022b6e4c8d2f8f1963aebb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Canna: {fileID: 1938178584}
 --- !u!1 &1938178584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3272,6 +3286,7 @@ GameObject:
   - component: {fileID: 1938178587}
   - component: {fileID: 1938178588}
   - component: {fileID: 1938178589}
+  - component: {fileID: 1938178590}
   m_Layer: 0
   m_Name: Canna
   m_TagString: Untagged
@@ -3396,3 +3411,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2.3
+--- !u!95 &1938178590
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1938178584}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09910e094d704cb41bfe34b9e1f292eb, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
