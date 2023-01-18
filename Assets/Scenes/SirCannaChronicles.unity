@@ -3093,6 +3093,7 @@ CompositeCollider2D:
       - {x: 0.9600293, y: -0.43}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
+  m_UseDelaunayMesh: 0
 --- !u!50 &568256376
 Rigidbody2D:
   serializedVersion: 4
@@ -3130,6 +3131,7 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+  m_UseDelaunayMesh: 0
 --- !u!1 &857887580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3411,6 +3413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2.3
+  JumpForce: 150
 --- !u!95 &1938178590
 Animator:
   serializedVersion: 4

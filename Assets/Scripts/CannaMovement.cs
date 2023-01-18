@@ -6,9 +6,13 @@ public class CannaMovement : MonoBehaviour
 {
     public float Speed;
 
+    public float JumpForce;
+
     private Rigidbody2D Rigidbody2D;
 
     private float Horizontal;
+
+    private bool Grounded;
 
     private Animator Animator;
 
@@ -35,14 +39,26 @@ public class CannaMovement : MonoBehaviour
             transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
         }
 
-
         Animator.SetBool("running", Horizontal != 0.0f);
 
+        Debug.DrawRay(transform.position, Vector3.down * 0.2f, Color.red);
+        if (Physics2D.Raycast(transform.position, Vector3.down, 0.1f))
+        {
+            Grounded = true;
+        }
+        else Grounded = false;
 
-
+        if (Input.GetKeyDown(KeyCode.W) && Grounded)
+        {
+            Jump();
+        }
 
     }
 
+    private void Jump()
+    {
+        Rigidbody2D.AddForce(Vector2.up * JumpForce);
+    }
 
     private void FixedUpdate()
     {
