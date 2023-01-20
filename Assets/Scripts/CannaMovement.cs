@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
+    public CharacterController controller;
+
     public float Speed;
 
     public float JumpForce;
@@ -51,9 +53,17 @@ public class CannaMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.W) && Grounded)
         {
             Jump();
+            Animator.SetBool("IsJumping", true);
         }
 
     }
+
+
+    public void OnLanding()
+    {
+        Animator.SetBool("IsJumping", false);
+    }
+
 
     private void Jump()
     {
