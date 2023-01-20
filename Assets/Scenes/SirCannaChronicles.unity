@@ -3488,7 +3488,6 @@ CompositeCollider2D:
       - {x: 0.0000252, y: 0.31999}
   m_VertexDistance: 0.0005
   m_OffsetDistance: 0.00005
-  m_UseDelaunayMesh: 0
 --- !u!50 &568256376
 Rigidbody2D:
   serializedVersion: 4
@@ -3526,7 +3525,6 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
-  m_UseDelaunayMesh: 0
 --- !u!1 &857887580
 GameObject:
   m_ObjectHideFlags: 0
@@ -3751,7 +3749,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938178584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.49, y: 0.131, z: 0}
+  m_LocalPosition: {x: -2.49, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -3808,7 +3806,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2.3
-  JumpForce: 170
+  JumpForce: 2
 --- !u!95 &1938178590
 Animator:
   serializedVersion: 4
