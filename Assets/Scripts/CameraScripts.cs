@@ -21,7 +21,7 @@ public class CameraScripts : MonoBehaviour
             //basicamente, el script copia la posición del personaje y se lo aplica a la camara
             Vector3 position = transform.position;
             position.x = Canna.transform.position.x;
-            position.y = Canna.transform.position.y;
+            position.y = Canna.transform.position.y + 0.2f;
             transform.position = position;
         }
     }
