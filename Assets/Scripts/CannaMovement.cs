@@ -39,15 +39,23 @@ public class CannaMovement : MonoBehaviour
 
 
 
+    [Header("Animacion")]
+    private Animator animator;
+
+
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
     {
         MovimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
+
+        animator.SetFloat("Horizontal", Mathf.Abs(MovimientoHorizontal));
 
 
         if (Input.GetButtonDown("Jump")) { 
@@ -61,6 +69,10 @@ public class CannaMovement : MonoBehaviour
     private void FixedUpdate()
     {
         enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionCaja, 0f, queEsSuelo);
+
+        animator.SetBool("enSuelo", enSuelo);
+
+
 
         //mover para cualquier equipo
         Mover(MovimientoHorizontal * Time.fixedDeltaTime, salto);
