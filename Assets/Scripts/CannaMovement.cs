@@ -57,6 +57,7 @@ public class CannaMovement : MonoBehaviour
 
         animator.SetFloat("Horizontal", Mathf.Abs(MovimientoHorizontal));
 
+        animator.SetFloat("VelocidadY", rb2D.velocity.y);
 
         if (Input.GetButtonDown("Jump")) { 
             salto = true;
