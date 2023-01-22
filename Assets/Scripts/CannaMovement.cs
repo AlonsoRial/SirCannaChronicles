@@ -12,11 +12,11 @@ public class CannaMovement : MonoBehaviour
     private float MovimientoHorizontal = 0f;
 
     //SerializeField sirve para que muestre en el IDE de Unity la variable, como si estuviera en publica la variable
-    [SerializeField] private float velocidadDeMovimiento = 0;
+    [SerializeField] private float velocidadDeMovimiento = 110;
 
     //suavizadoDeSuelo sirve para que el movimiento no sea tan brusco
     //Range sirve para poner un range entre dos numeros
-    [Range(0, 1f)][SerializeField] private float suavizadoDeMovimiento;
+    [Range(0, 1f)][SerializeField] private float suavizadoDeMovimiento =0.1f;
 
     private Vector3 velocidad = Vector3.zero;
 
@@ -24,7 +24,7 @@ public class CannaMovement : MonoBehaviour
 
 
     [Header("Salto")]
-    [SerializeField] private float fuerzaDeSalto;
+    [SerializeField] private float fuerzaDeSalto = 160 ;
 
     //controla que es saltable y que no
     [SerializeField] private LayerMask queEsSuelo;
@@ -55,17 +55,20 @@ public class CannaMovement : MonoBehaviour
         }
 
 
-
     }
 
     //como el update(), pero orientado a cambios de fisicas
     private void FixedUpdate()
     {
+        enSuelo = Physics2D.OverlapBox(controladorSuelo.position, dimensionCaja, 0f, queEsSuelo);
+
         //mover para cualquier equipo
-        Mover(MovimientoHorizontal * Time.fixedDeltaTime);
+        Mover(MovimientoHorizontal * Time.fixedDeltaTime, salto);
+
+        salto = false;
     }
 
-    private void Mover(float mover) {
+    private void Mover(float mover, bool saltar) {
 
         Vector3 velocidadObjetivo = new Vector2(mover, rb2D.velocity.y);
 
@@ -76,6 +79,13 @@ public class CannaMovement : MonoBehaviour
         }
         else if (mover <0 && mirandoDerecha) {
             Girar();
+        }
+
+
+
+        if (enSuelo && saltar) {
+            enSuelo = false;
+            rb2D.AddForce(new Vector2(0f, fuerzaDeSalto));
         }
 
 
@@ -92,7 +102,11 @@ public class CannaMovement : MonoBehaviour
     
     }
 
-
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(controladorSuelo.position, dimensionCaja);
+    }
 
 
 
