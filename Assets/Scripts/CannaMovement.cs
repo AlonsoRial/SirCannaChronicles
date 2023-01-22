@@ -6,17 +6,64 @@ public class CannaMovement : MonoBehaviour
 {
     public CharacterController controller;
 
-    public float Speed;
-
-    public float JumpForce;
+    public Animator animator;
 
     private Rigidbody2D Rigidbody2D;
 
-    private float Horizontal;
 
-    private bool Grounded;
 
-    private Animator Animator;
+    public float runSpeed = 40f;
+
+    float horizontalMove = 0f;
+    bool jump = false;
+    bool crouch = false;
+
+
+    /*
+    void Start()
+    {
+        Rigidbody2D = GetComponent<Rigidbody2D>();
+
+        Animator = GetComponent<Animator>();
+
+    }
+*/
+
+    void Update()
+    {
+
+        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
+
+        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
+
+        if (Input.GetButtonDown("Jump"))
+        {
+            jump = true;
+            animator.SetBool("IsJumping", true);
+        }
+
+
+    }
+
+    public void OnLanding()
+    {
+        animator.SetBool("IsJumping", false);
+    }
+
+
+
+    void FixedUpdate()
+    {
+        // Move our character
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
+    }
+
+
+
+    /*
+
+
     //hola
 
     void Start()
@@ -26,6 +73,9 @@ public class CannaMovement : MonoBehaviour
         Animator = GetComponent<Animator>();
 
     }
+
+
+
 
     // Update is called once per frame
     void Update()
@@ -76,8 +126,11 @@ public class CannaMovement : MonoBehaviour
         //la variable Speed se refiere a la velocidad, cuanto más alta, mas rapido se movera 
         Rigidbody2D.velocity = new Vector2(Horizontal * Speed, Rigidbody2D.velocity.y);
 
+        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+        jump = false;
+
     }
 
-
+    */
 
 }
