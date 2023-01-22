@@ -4,133 +4,96 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
-    public CharacterController controller;
+    private Rigidbody2D rb2D;
 
-    public Animator animator;
+    //no sirve para nada, es solo para ordenar el codigo, como si fuera el Head del html
+    [Header("Movimiento")]
+    
+    private float MovimientoHorizontal = 0f;
 
-    private Rigidbody2D Rigidbody2D;
+    //SerializeField sirve para que muestre en el IDE de Unity la variable, como si estuviera en publica la variable
+    [SerializeField] private float velocidadDeMovimiento = 0;
+
+    //suavizadoDeSuelo sirve para que el movimiento no sea tan brusco
+    //Range sirve para poner un range entre dos numeros
+    [Range(0, 1f)][SerializeField] private float suavizadoDeMovimiento;
+
+    private Vector3 velocidad = Vector3.zero;
+
+    private bool mirandoDerecha = true;
+
+
+    [Header("Salto")]
+    [SerializeField] private float fuerzaDeSalto;
+
+    //controla que es saltable y que no
+    [SerializeField] private LayerMask queEsSuelo;
+
+    [SerializeField] private Transform controladorSuelo;
+
+    [SerializeField] private Vector3 dimensionCaja;
+
+    [SerializeField] private bool enSuelo;
+
+    private bool salto = false;
 
 
 
-    public float runSpeed = 40f;
 
-    float horizontalMove = 0f;
-    bool jump = false;
-    bool crouch = false;
-
-
-    /*
-    void Start()
+    private void Start()
     {
-        Rigidbody2D = GetComponent<Rigidbody2D>();
-
-        Animator = GetComponent<Animator>();
-
+        rb2D = GetComponent<Rigidbody2D>();
     }
-*/
 
-    void Update()
+    private void Update()
     {
+        MovimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
 
-        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-        animator.SetFloat("Speed", Mathf.Abs(horizontalMove));
-
-        if (Input.GetButtonDown("Jump"))
-        {
-            jump = true;
-            animator.SetBool("IsJumping", true);
+        if (Input.GetButtonDown("Jump")) { 
+            salto = true;
         }
 
 
-    }
-
-    public void OnLanding()
-    {
-        animator.SetBool("IsJumping", false);
-    }
-
-
-
-    void FixedUpdate()
-    {
-        // Move our character
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
-    }
-
-
-
-    /*
-
-
-    //hola
-
-    void Start()
-    {
-        Rigidbody2D = GetComponent<Rigidbody2D>();
-
-        Animator = GetComponent<Animator>();
 
     }
 
-
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        Horizontal = Input.GetAxisRaw("Horizontal");
-
-        if (Horizontal < 0.0f)
-        {
-            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
-        }//si se pulsa a la derecha, cambia a su escala a la positiva
-        else if (Horizontal > 0.0f)
-        {
-            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
-        }
-
-        Animator.SetBool("running", Horizontal != 0.0f);
-
-        Debug.DrawRay(transform.position, Vector3.down * 0.2f, Color.red);
-        if (Physics2D.Raycast(transform.position, Vector3.down, 0.2f))
-        {
-            Grounded = true;
-        }
-        else Grounded = false;
-
-        if (Input.GetKeyDown(KeyCode.W) && Grounded)
-        {
-            Jump();
-            Animator.SetBool("IsJumping", true);
-        }
-
-    }
-
-
-    public void OnLanding()
-    {
-        Animator.SetBool("IsJumping", false);
-    }
-
-
-    private void Jump()
-    {
-        Rigidbody2D.AddForce(Vector2.up * JumpForce);
-    }
-
+    //como el update(), pero orientado a cambios de fisicas
     private void FixedUpdate()
     {
-        //mover el personaje a la velocidad recogida por el Horizontal (teclado) hacia la dirección marcadaç
-        //la variable Speed se refiere a la velocidad, cuanto más alta, mas rapido se movera 
-        Rigidbody2D.velocity = new Vector2(Horizontal * Speed, Rigidbody2D.velocity.y);
+        //mover para cualquier equipo
+        Mover(MovimientoHorizontal * Time.fixedDeltaTime);
+    }
 
-        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
-        jump = false;
+    private void Mover(float mover) {
+
+        Vector3 velocidadObjetivo = new Vector2(mover, rb2D.velocity.y);
+
+        rb2D.velocity = Vector3.SmoothDamp(rb2D.velocity, velocidadObjetivo, ref velocidad, suavizadoDeMovimiento);
+
+        if (mover > 0 && !mirandoDerecha) {
+            Girar();
+        }
+        else if (mover <0 && mirandoDerecha) {
+            Girar();
+        }
+
+
 
     }
 
-    */
+    private void Girar() {
+
+        mirandoDerecha = !mirandoDerecha;
+        Vector3 escala = transform.localScale;
+
+        escala.x *= -1;
+        transform.localScale = escala;
+    
+    }
+
+
+
+
 
 }
