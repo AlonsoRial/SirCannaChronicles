@@ -14,6 +14,9 @@ public class CannaMovement : MonoBehaviour
     //SerializeField sirve para que muestre en el IDE de Unity la variable, como si estuviera en publica la variable
     [SerializeField] private float velocidadDeMovimiento = 110;
 
+
+
+
     //suavizadoDeSuelo sirve para que el movimiento no sea tan brusco
     //Range sirve para poner un range entre dos numeros
     [Range(0, 1f)][SerializeField] private float suavizadoDeMovimiento =0.1f;
@@ -78,6 +81,9 @@ public class CannaMovement : MonoBehaviour
         //mover para cualquier equipo
         Mover(MovimientoHorizontal * Time.fixedDeltaTime, salto);
 
+
+
+
         salto = false;
     }
 
@@ -121,6 +127,8 @@ public class CannaMovement : MonoBehaviour
         Gizmos.DrawWireCube(controladorSuelo.position, dimensionCaja);
     }
 
+
+    
 
 
 }
