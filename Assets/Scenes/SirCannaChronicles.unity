@@ -8427,6 +8427,37 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1077463875
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1077463876}
+  m_Layer: 0
+  m_Name: ControladorAtaque2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1077463876
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077463875}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.062, y: 0.029, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1938178586}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1126873088
 GameObject:
   m_ObjectHideFlags: 0
@@ -8451,7 +8482,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1126873088}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.093, y: 0, z: 0}
+  m_LocalPosition: {x: 0.265, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9104,12 +9135,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938178584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.461, y: -0.42, z: 0}
+  m_LocalPosition: {x: -2.48, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 791505249}
   - {fileID: 1126873089}
+  - {fileID: 1077463876}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -9204,10 +9236,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   controladorGolpe: {fileID: 1126873089}
+  controladorGolpe2: {fileID: 1077463876}
   radioGolpe: 0.24
   danyoGolpe: 20
-  tiempoEntreAtaque: 0
+  danyoGolpe2: 0
+  tiempoEntreAtaque: 2
   tiempoSiguienteAtaque: 0
+  dimensionesCaja: {x: 0.79, y: 0.43}
+  posicionCaja: {fileID: 1077463876}
 --- !u!1 &2117482314
 GameObject:
   m_ObjectHideFlags: 0
