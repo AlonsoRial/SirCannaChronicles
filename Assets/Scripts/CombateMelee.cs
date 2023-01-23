@@ -26,10 +26,17 @@ public class CombateMelee : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.F) && tiempoSiguienteAtaque <=0  ) {
+        if (Input.GetKeyDown(KeyCode.F) && tiempoSiguienteAtaque <= 0) {
             Golpe();
             tiempoSiguienteAtaque = tiempoEntreAtaque;
         }
+
+
+        if (Input.GetKeyDown(KeyCode.F) && tiempoSiguienteAtaque <= 0) {
+            Golpe2();
+        }
+
+
     }
 
 
@@ -50,6 +57,26 @@ public class CombateMelee : MonoBehaviour
         }
 
     }
+
+
+    private void Golpe2()
+    {
+
+        animator.SetTrigger("Golpe2");
+
+        Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
+
+
+        foreach (Collider2D colisionador in objetos)
+        {
+            if (colisionador.CompareTag("Enemigo"))
+            {
+                colisionador.transform.GetComponent<Enemigo>().TomarDanyo(danyoGolpe);
+            }
+        }
+
+    }
+
 
 
     private void OnDrawGizmos()
