@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class Enemigo : MonoBehaviour
@@ -7,6 +8,10 @@ public class Enemigo : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private float vida;
+
+   // private Rigidbody2D Rigidbody2D;
+
+
 
     private Animator animator;
 
@@ -22,6 +27,7 @@ public class Enemigo : MonoBehaviour
 
         if (vida <= 0) {
             Muerte();
+            Destroy(gameObject, 5.00f);
         }
 
     }
@@ -29,9 +35,19 @@ public class Enemigo : MonoBehaviour
 
     private void Muerte() {
         animator.SetTrigger("Muerte");
+
+
     }
 
 
+
+
+ 
+
+
+       
+
+    
 
 
 
