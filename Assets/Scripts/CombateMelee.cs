@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
 public class CombateMelee : MonoBehaviour
@@ -41,10 +42,14 @@ public class CombateMelee : MonoBehaviour
             tiempoSiguienteAtaque = tiempoEntreAtaque;
         }
 
+    
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            Golpe2();
+
+            Golpe2(); 
+
+            
         }
 
 
@@ -54,6 +59,7 @@ public class CombateMelee : MonoBehaviour
 
     private void Golpe() 
     {
+       
 
         animator.SetTrigger("Golpe");
 
@@ -74,6 +80,7 @@ public class CombateMelee : MonoBehaviour
     private void Golpe2()
     {
 
+
         animator.SetTrigger("Golpe2");
 
 
@@ -86,6 +93,7 @@ public class CombateMelee : MonoBehaviour
             {
                 colisionador.transform.GetComponent<Enemigo>().TomarDanyo(danyoGolpe/2);
             }
+        
         }
 
     }

@@ -28,7 +28,7 @@ public class Enemigo : MonoBehaviour
 
 
     private void Muerte() {
-        print("estoy muerto");
+        animator.SetTrigger("Muerte");
     }
 
 
