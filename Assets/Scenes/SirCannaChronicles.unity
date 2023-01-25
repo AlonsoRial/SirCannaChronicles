@@ -9149,7 +9149,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1938178584}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.48, y: -0.42, z: 0}
+  m_LocalPosition: {x: -2.568, y: -0.42, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -9302,6 +9302,14 @@ PrefabInstance:
     - target: {fileID: 239326817054442028, guid: c8a37ad6f8da3ac45b69cd15439109a7, type: 3}
       propertyPath: m_Name
       value: Skeleton enemy_38
+      objectReference: {fileID: 0}
+    - target: {fileID: 239326817054442032, guid: c8a37ad6f8da3ac45b69cd15439109a7, type: 3}
+      propertyPath: Canna
+      value: 
+      objectReference: {fileID: 1938178584}
+    - target: {fileID: 239326817054442032, guid: c8a37ad6f8da3ac45b69cd15439109a7, type: 3}
+      propertyPath: UltimoGolpe
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 239326817054442038, guid: c8a37ad6f8da3ac45b69cd15439109a7, type: 3}
       propertyPath: m_RootOrder

@@ -8,8 +8,12 @@ public class Enemigo : MonoBehaviour
     // Start is called before the first frame update
 
     [SerializeField] private float vida;
+    [SerializeField] private GameObject Canna;
 
-   // private Rigidbody2D Rigidbody2D;
+    [SerializeField] private float UltimoGolpe;
+
+
+    // private Rigidbody2D Rigidbody2D;
 
 
 
@@ -19,6 +23,36 @@ public class Enemigo : MonoBehaviour
     {
         animator = GetComponent<Animator>(); 
     }
+
+
+    private void Update()
+    {
+        if(Canna == null) return;
+
+        float distance = Mathf.Abs(Canna.transform.position.x - transform.position.x);
+      //  print(distance);
+
+        if (distance < 0.4f && Time.time > UltimoGolpe + 2.7f)
+        {
+            Golperar();
+            print("golpeando");
+            UltimoGolpe = Time.time;
+
+        }
+
+
+    }
+
+
+
+    public void Golperar()
+    {
+
+        animator.SetTrigger("Golpear");
+
+    }
+
+
 
 
     public void TomarDanyo(float danyo) {
