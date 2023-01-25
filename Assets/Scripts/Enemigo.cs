@@ -24,6 +24,8 @@ public class Enemigo : MonoBehaviour
     public void TomarDanyo(float danyo) {
 
         vida -= danyo;
+        animator.SetTrigger("Danyo");
+
 
         if (vida <= 0) {
             Muerte();
