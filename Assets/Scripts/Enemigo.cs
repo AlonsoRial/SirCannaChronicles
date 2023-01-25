@@ -50,6 +50,8 @@ public class Enemigo : MonoBehaviour
 
         animator.SetTrigger("Golpear");
 
+
+
     }
 
 
