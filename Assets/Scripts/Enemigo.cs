@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Threading;
 using UnityEngine;
 
@@ -13,7 +14,8 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private float UltimoGolpe;
 
 
-    // private Rigidbody2D Rigidbody2D;
+    private Rigidbody2D Rigidbody2D;
+    CapsuleCollider2D capsuleCollider;
 
 
 
@@ -22,6 +24,8 @@ public class Enemigo : MonoBehaviour
     private void Start()
     {
         animator = GetComponent<Animator>(); 
+        capsuleCollider = GetComponent<CapsuleCollider2D>();
+        Rigidbody2D = GetComponent<Rigidbody2D>();
     }
 
 
@@ -64,8 +68,10 @@ public class Enemigo : MonoBehaviour
 
 
         if (vida <= 0) {
+            
+            
             Muerte();
-            Destroy(gameObject, 5.00f);
+            
         }
 
     }
@@ -73,8 +79,8 @@ public class Enemigo : MonoBehaviour
 
     private void Muerte() {
         animator.SetTrigger("Muerte");
-
-
+        
+        Destroy(gameObject, 1.00f);
     }
 
 
