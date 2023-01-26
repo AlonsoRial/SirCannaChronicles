@@ -113,6 +113,13 @@ public class CannaMovement : MonoBehaviour
 
     }
 
+
+    public void RecibirDanyo(float danyo)
+    {
+        vida -= danyo;
+    }
+
+
     private void Girar() {
 
         mirandoDerecha = !mirandoDerecha;
