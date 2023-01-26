@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
@@ -117,7 +118,22 @@ public class CannaMovement : MonoBehaviour
     public void RecibirDanyo(float danyo)
     {
         vida -= danyo;
+
+        if(vida <= 0)
+        {
+            Muerte();
+        }
+
+
     }
+
+
+    public void Muerte()
+    {
+        animator.SetTrigger("Muerte");
+        Destroy(gameObject, 5f);
+    }
+
 
 
     private void Girar() {
