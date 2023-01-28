@@ -5,6 +5,18 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
+    [SerializeField] public Transform controladorGolpe;
+    [SerializeField] public Transform controladorGolpe2;
+
+
+    [SerializeField] public float radioGolpe;
+    [SerializeField] public float danyoGolpe;
+
+    [SerializeField] public Vector2 dimensionesCaja;
+    [SerializeField] public Transform posicionCaja;
+
+
+
 
     public bool isAttacking = false;
 
@@ -94,6 +106,9 @@ public class CannaMovement : MonoBehaviour
 
         }
 
+
+
+
     }
 
 
@@ -175,6 +190,14 @@ public class CannaMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(controladorSuelo.position, dimensionCaja);
+
+
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+
+        Gizmos.DrawWireCube(controladorGolpe2.position, dimensionesCaja);
+
     }
 
 

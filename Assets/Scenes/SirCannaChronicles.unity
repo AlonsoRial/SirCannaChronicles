@@ -17895,7 +17895,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1367209485}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 3a5e0ac88f0782141834dd156e493645, type: 3}
@@ -18478,7 +18478,6 @@ GameObject:
   - component: {fileID: 1938178588}
   - component: {fileID: 1938178589}
   - component: {fileID: 1938178590}
-  - component: {fileID: 1938178591}
   m_Layer: 0
   m_Name: Canna
   m_TagString: Player
@@ -18605,6 +18604,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 92af06a4236e966409a68e0e3d596047, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  controladorGolpe: {fileID: 1126873089}
+  controladorGolpe2: {fileID: 1077463876}
+  radioGolpe: 0.24
+  danyoGolpe: 30
+  dimensionesCaja: {x: 0.6, y: 0.43}
+  posicionCaja: {fileID: 1077463876}
+  isAttacking: 0
   vida: 200
   velocidadDeMovimiento: 110
   suavizadoDeMovimiento: 0.1
@@ -18615,9 +18621,10 @@ MonoBehaviour:
   controladorSuelo: {fileID: 791505249}
   dimensionCaja: {x: 0.22, y: 0.05, z: 0}
   enSuelo: 0
+  animator: {fileID: 0}
 --- !u!95 &1938178590
 Animator:
-  serializedVersion: 5
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18634,28 +18641,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
---- !u!114 &1938178591
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1938178584}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4dab1c0f672ee9e48b7c89123ee9438f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controladorGolpe: {fileID: 1126873089}
-  controladorGolpe2: {fileID: 1077463876}
-  radioGolpe: 0.24
-  danyoGolpe: 20
-  danyoGolpe2: 0
-  tiempoEntreAtaque: 2
-  tiempoSiguienteAtaque: 0
-  dimensionesCaja: {x: 0.6, y: 0.43}
-  posicionCaja: {fileID: 1077463876}
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1979556148 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 239326817054442038, guid: c8a37ad6f8da3ac45b69cd15439109a7, type: 3}

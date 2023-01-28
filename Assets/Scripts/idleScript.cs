@@ -15,6 +15,19 @@ public class idleScript : StateMachineBehaviour
     {
         if (CannaMovement.instance.isAttacking) {
             CannaMovement.instance.animator.Play("atk1");
+
+
+            Collider2D[] objetos = Physics2D.OverlapCircleAll(CannaMovement.instance.controladorGolpe.position, CannaMovement.instance.radioGolpe);
+
+
+            foreach (Collider2D colisionador in objetos)
+            {
+                if (colisionador.CompareTag("Enemigo"))
+                {
+                    colisionador.transform.GetComponent<Enemigo>().TomarDanyo(CannaMovement.instance.danyoGolpe);
+                }
+            }
+
         }
     }
 

@@ -15,6 +15,20 @@ public class Transition1Script : StateMachineBehaviour
     {
         if (CannaMovement.instance.isAttacking) {
             CannaMovement.instance.animator.Play("atk2");
+
+
+            Collider2D[] objetos = Physics2D.OverlapBoxAll( CannaMovement.instance.posicionCaja.position, CannaMovement.instance.dimensionesCaja, 0f);
+
+
+            foreach (Collider2D colisionador in objetos)
+            {
+                if (colisionador.CompareTag("Enemigo"))
+                {
+                    colisionador.transform.GetComponent<Enemigo>().TomarDanyo(CannaMovement.instance.danyoGolpe / 2);
+                }
+
+            }
+
         }
     }
 
