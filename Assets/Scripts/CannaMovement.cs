@@ -6,6 +6,8 @@ public class CannaMovement : MonoBehaviour
 {
     private Rigidbody2D rb2D;
 
+    [SerializeField] private float vida = 200;
+
     //no sirve para nada, es solo para ordenar el codigo, como si fuera el Head del html
     [Header("Movimiento")]
     
@@ -110,6 +112,13 @@ public class CannaMovement : MonoBehaviour
 
 
     }
+
+
+    public void RecibirDanyo(float danyo)
+    {
+        vida -= danyo;
+    }
+
 
     private void Girar() {
 
