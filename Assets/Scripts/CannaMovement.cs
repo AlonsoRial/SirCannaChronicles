@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
+
+    public bool isAttacking = false;
+
+
     private Rigidbody2D rb2D;
 
     [SerializeField] private float vida = 200;
@@ -43,10 +47,16 @@ public class CannaMovement : MonoBehaviour
 
     private bool salto = false;
 
-
+    public static CannaMovement instance;
 
     [Header("Animacion")]
-    private Animator animator;
+    public Animator animator;
+
+
+    private void Awake()
+    {
+        instance = this; 
+    }
 
 
 
@@ -59,6 +69,9 @@ public class CannaMovement : MonoBehaviour
 
     private void Update()
     {
+
+        Attack();
+
         MovimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
 
         animator.SetFloat("Horizontal", Mathf.Abs(MovimientoHorizontal));
@@ -71,6 +84,18 @@ public class CannaMovement : MonoBehaviour
 
 
     }
+
+
+    void Attack() {
+
+        if (Input.GetKeyDown(KeyCode.F) && !isAttacking) {
+            
+            isAttacking = true;
+
+        }
+
+    }
+
 
     //como el update(), pero orientado a cambios de fisicas
     private void FixedUpdate()
