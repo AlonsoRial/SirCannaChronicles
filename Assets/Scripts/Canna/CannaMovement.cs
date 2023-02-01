@@ -157,6 +157,7 @@ public class CannaMovement : MonoBehaviour
 
     public void RecibirDanyo(float danyo)
     {
+        animator.SetTrigger("Hit");
         vida -= danyo;
 
         if(vida <= 0)
