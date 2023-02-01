@@ -28,11 +28,11 @@ public class Transition1Script : StateMachineBehaviour
                 }
 
 
-                if (colisionador.CompareTag("Enemigo2"))
+              /*  if (colisionador.CompareTag("Enemigo2"))
                 {
                     colisionador.transform.GetComponent<Enemigo2>().TomarDanyo(CannaMovement.instance.danyoGolpe / 2);
                 }
-
+*/
 
             }
 
