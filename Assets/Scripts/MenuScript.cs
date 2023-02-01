@@ -22,7 +22,13 @@ public class MenuScript : MonoBehaviour
     public void CambiarVolumen()
     {
         AudioListener.volume = slider.value * maxTipificado;
-        textoSlider.text = slider.value.ToString();
+        ActualizarTextoVolumen();
+    }
+
+    private void ActualizarTextoVolumen()
+    {
+        int porcentajeVolumen = (int) (slider.value * 100);
+        textoSlider.text = porcentajeVolumen + "%";
     }
 
     public void Jugar()
