@@ -85,8 +85,7 @@ AnimatorState:
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
-  m_StateMachineBehaviours:
-  - {fileID: 8963996605193665342}
+  m_StateMachineBehaviours: []
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -113,7 +112,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 763f4bcbd28e76f4c9288705e150c2df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidadMovimiento: 0.1
+  enemigo2: {fileID: 0}
+  rb2D: {fileID: 0}
+  velocidadMovimiento: 0.5
 --- !u!1101 &8972254012244122974
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
