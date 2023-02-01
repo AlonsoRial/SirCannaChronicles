@@ -25,8 +25,10 @@ public class Enemigo : MonoBehaviour
     [SerializeField] private Vector2 dimensionesCaja;
     [SerializeField] private Transform posicionCaja;
 
-
     private Animator animator;
+
+
+
 
     private void Start()
     {
@@ -50,6 +52,17 @@ public class Enemigo : MonoBehaviour
             UltimoGolpe = Time.time;
 
         }
+
+        Vector3 direccion = Canna.transform.position - transform.position;
+        if (direccion.x >= 0.0f)
+        {
+            transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        }
+        else {
+            transform.localScale = new Vector3(-1.0f, 1.0f, 1.0f);
+        }
+
+
 
 
     }

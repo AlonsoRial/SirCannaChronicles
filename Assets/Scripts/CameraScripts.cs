@@ -10,7 +10,6 @@ public class CameraScripts : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -21,7 +20,7 @@ public class CameraScripts : MonoBehaviour
             //basicamente, el script copia la posición del personaje y se lo aplica a la camara
             Vector3 position = transform.position;
             position.x = Canna.transform.position.x;
-            position.y = Canna.transform.position.y + 0.2f;
+            position.y = Canna.transform.position.y + 0.1f;
             transform.position = position;
         }
     }
