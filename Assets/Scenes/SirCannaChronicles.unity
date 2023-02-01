@@ -504,7 +504,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 53931763}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69aa83e17af4f14468ac55dfc6920bd5, type: 3}
+  m_Script: {fileID: 11500000, guid: 49926cb9f0e9b9f479e0c88dca911c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 2034941475}
@@ -35452,7 +35452,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 53931769}
-        m_TargetAssemblyTypeName: MenuScript, Assembly-CSharp
+        m_TargetAssemblyTypeName: VolumenScript, Assembly-CSharp
         m_MethodName: CambiarVolumen
         m_Mode: 1
         m_Arguments:

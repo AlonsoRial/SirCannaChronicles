@@ -8,27 +8,24 @@ using TMPro;
 public class MainMenuScript : MonoBehaviour
 {
 
-    public Slider slider;
-    public TextMeshProUGUI textoSlider;
-    public float volumenInicial;
-    public float maxTipificado;
+    public GameObject menuPrincipal;
+    public GameObject menuOpciones;
 
-    public void Start()
+    void Start()
     {
-        slider.value = volumenInicial;
-        AudioListener.volume = volumenInicial * maxTipificado;
+
     }
 
-    public void CambiarVolumen()
+    void Update()
     {
-        AudioListener.volume = slider.value * maxTipificado;
-        ActualizarTextoVolumen();
-    }
-
-    private void ActualizarTextoVolumen()
-    {
-        int porcentajeVolumen = (int) (slider.value * 100);
-        textoSlider.text = porcentajeVolumen + "%";
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (menuOpciones.activeInHierarchy)
+            {
+                menuOpciones.SetActive(false);
+                menuPrincipal.SetActive(true);
+            }
+        }
     }
 
     public void Jugar()
@@ -40,4 +37,5 @@ public class MainMenuScript : MonoBehaviour
     {
         Application.Quit();
     }
+
 }
