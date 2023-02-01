@@ -33,7 +33,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if (menuPausa.active)
+            if (menuPausa.activeInHierarchy)
             {
                 Despausar();
             }
