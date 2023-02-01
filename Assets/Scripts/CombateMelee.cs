@@ -21,11 +21,10 @@ public class CombateMelee : MonoBehaviour
     [SerializeField] private Transform posicionCaja;
    
 
-    private Animator animator;
 
     private void Start()
     {
-        animator = GetComponent<Animator>();
+      
     }
 
     private void Update()
@@ -61,7 +60,7 @@ public class CombateMelee : MonoBehaviour
     {
        
 
-        animator.SetTrigger("Golpe");
+       
 
         Collider2D[] objetos = Physics2D.OverlapCircleAll(controladorGolpe.position, radioGolpe);
 
@@ -81,7 +80,7 @@ public class CombateMelee : MonoBehaviour
     {
 
 
-        animator.SetTrigger("Golpe2");
+      
 
 
         Collider2D[] objetos = Physics2D.OverlapBoxAll( posicionCaja.position,  dimensionesCaja, 0f);
@@ -107,7 +106,7 @@ public class CombateMelee : MonoBehaviour
         Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
 
         Gizmos.DrawWireCube(controladorGolpe2.position, dimensionesCaja);
-
+        //
     }
 
 

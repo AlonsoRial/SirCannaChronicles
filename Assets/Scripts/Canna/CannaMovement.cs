@@ -5,6 +5,22 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
+    [SerializeField] public Transform controladorGolpe;
+    [SerializeField] public Transform controladorGolpe2;
+
+
+    [SerializeField] public float radioGolpe;
+    [SerializeField] public float danyoGolpe;
+
+    [SerializeField] public Vector2 dimensionesCaja;
+    [SerializeField] public Transform posicionCaja;
+
+
+
+
+    public bool isAttacking = false;
+
+
     private Rigidbody2D rb2D;
 
     [SerializeField] private float vida = 200;
@@ -43,10 +59,16 @@ public class CannaMovement : MonoBehaviour
 
     private bool salto = false;
 
-
+    public static CannaMovement instance;
 
     [Header("Animacion")]
-    private Animator animator;
+    public Animator animator;
+
+
+    private void Awake()
+    {
+        instance = this; 
+    }
 
 
 
@@ -59,6 +81,9 @@ public class CannaMovement : MonoBehaviour
 
     private void Update()
     {
+
+        Attack();
+
         MovimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
 
         animator.SetFloat("Horizontal", Mathf.Abs(MovimientoHorizontal));
@@ -71,6 +96,21 @@ public class CannaMovement : MonoBehaviour
 
 
     }
+
+
+    void Attack() {
+
+        if (Input.GetKeyDown(KeyCode.F) && !isAttacking) {
+            
+            isAttacking = true;
+
+        }
+
+
+
+
+    }
+
 
     //como el update(), pero orientado a cambios de fisicas
     private void FixedUpdate()
@@ -117,6 +157,7 @@ public class CannaMovement : MonoBehaviour
 
     public void RecibirDanyo(float danyo)
     {
+        animator.SetTrigger("Hit");
         vida -= danyo;
 
         if(vida <= 0)
@@ -150,6 +191,14 @@ public class CannaMovement : MonoBehaviour
     {
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(controladorSuelo.position, dimensionCaja);
+
+
+        Gizmos.color = Color.blue;
+
+        Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
+
+        Gizmos.DrawWireCube(controladorGolpe2.position, dimensionesCaja);
+
     }
 
 
