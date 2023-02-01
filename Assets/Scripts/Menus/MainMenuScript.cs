@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
-public class MenuScript : MonoBehaviour
+public class MainMenuScript : MonoBehaviour
 {
 
     public Slider slider;
