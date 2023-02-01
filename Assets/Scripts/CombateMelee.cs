@@ -106,7 +106,7 @@ public class CombateMelee : MonoBehaviour
         Gizmos.DrawWireSphere(controladorGolpe.position, radioGolpe);
 
         Gizmos.DrawWireCube(controladorGolpe2.position, dimensionesCaja);
-
+        //
     }
 
 
