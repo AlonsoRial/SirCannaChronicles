@@ -5,71 +5,52 @@ using UnityEngine;
 
 public class Enemigo2 : MonoBehaviour
 {
-    public int rutina;
-    public float cronometro;
-    public Animator ani;
-    public int direccion;
-    public float speed_walk;
-    public float speed_run;
+    private Animator animator;
+    public Rigidbody2D rb2D;
+    public Transform jugador;
+    private bool mirandoDerecha = true;
 
-    public GameObject Canna;
-    public bool atacando;
+    [Header("Vida")]
+    [SerializeField] private float vida;
 
 
     private void Start()
     {
-        ani = GetComponent<Animator>();
-        Canna = GameObject.Find("Canna");
+        animator = GetComponent<Animator>();
+        rb2D = GetComponent<Rigidbody2D>();
+        jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
-    private void Update()
-    {
-        Comportamiento();
-    }
 
-    public void Comportamiento()
+    public void TomarDanyo(float danyo)
     {
-        ani.SetBool("run", false);
-        cronometro += 1 * Time.deltaTime;
-        if (cronometro >= 4)
+        vida -= danyo;
+
+        if (vida <= 0)
         {
-            rutina = Random.Range(0, 2);
-            cronometro = 0;
+            animator.SetTrigger("Muerte");
         }
 
-
-        switch (rutina)
-        {
-            case 0:
-                ani.SetBool("walk", false);
-                break;
-
-            case 1:
-                direccion = Random.Range(0, 2);
-                rutina++;
-                break;
-
-            case 2:
-
-                switch (direccion)
-                {
-                    case 0:
-                        transform.rotation = Quaternion.Euler(0, 0, 0);
-                        transform.Translate(Vector3.right * speed_walk * Time.deltaTime);
-                        break;
-
-                    case 1:
-                        transform.rotation = Quaternion.Euler(0, 180, 0);
-                        transform.Translate(Vector3.right * speed_walk * Time.deltaTime);
-                        break;
-                }
-                ani.SetBool("walk", true);
-                break;
-        }
-
-
     }
 
+    private void Muerte()
+    {
+        Destroy(gameObject);
+    }
+
+
+
+
+    public void MirarJugador()
+    {
+
+        if((jugador.position.x > transform.position.x && !mirandoDerecha) || (jugador.position.x < transform.position.x && mirandoDerecha))
+        {
+            mirandoDerecha = !mirandoDerecha;
+            transform.eulerAngles = new Vector3(0,transform.eulerAngles.y + 180,0);
+        }
+
+    }
 
 
 

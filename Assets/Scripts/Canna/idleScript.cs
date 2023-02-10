@@ -25,7 +25,15 @@ public class idleScript : StateMachineBehaviour
                 if (colisionador.CompareTag("Enemigo"))
                 {
                     colisionador.transform.GetComponent<Enemigo>().TomarDanyo(CannaMovement.instance.danyoGolpe);
+
                 }
+
+                if (colisionador.CompareTag("Enemigo2"))
+                {
+                 
+                    colisionador.transform.GetComponent<Enemigo2>().TomarDanyo(CannaMovement.instance.danyoGolpe);
+                }
+
             }
 
         }
