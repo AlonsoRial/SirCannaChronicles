@@ -13,12 +13,23 @@ public class Enemigo2 : MonoBehaviour
     [Header("Vida")]
     [SerializeField] private float vida;
 
+    [Header("Ataque")]
+    [SerializeField] private Transform controladorAtaque;
+    [SerializeField] private float radioAtaque;
+    [SerializeField] private float danyoAtaque;
+
 
     private void Start()
     {
         animator = GetComponent<Animator>();
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+    }
+
+    private void Update()
+    {
+        float distanciaJugador = Vector2.Distance(transform.position, jugador.position);
+        animator.SetFloat("distanciaJugador", distanciaJugador);
     }
 
 
@@ -53,6 +64,29 @@ public class Enemigo2 : MonoBehaviour
     }
 
 
+    public void Ataque()
+    {
+        Collider2D[] objectos = Physics2D.OverlapCircleAll(controladorAtaque.position, radioAtaque);
+
+        foreach (Collider2D colision in objectos)
+        {
+
+            if (colision.CompareTag("Player"))
+            {
+                colision.GetComponent<CannaMovement>().RecibirDanyo(danyoAtaque);
+
+            }
+
+
+        }
+    }
+
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(controladorAtaque.position, radioAtaque);
+    }
 
 
 }
