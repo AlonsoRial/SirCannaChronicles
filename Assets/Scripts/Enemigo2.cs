@@ -40,13 +40,14 @@ public class Enemigo2 : MonoBehaviour
         if (vida <= 0)
         {
             animator.SetTrigger("Muerte");
+            Muerte();
         }
 
     }
 
     private void Muerte()
     {
-        Destroy(gameObject);
+        Destroy(gameObject,3f);
     }
 
 
