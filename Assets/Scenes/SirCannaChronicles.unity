@@ -35881,6 +35881,7 @@ GameObject:
   - component: {fileID: 865425068}
   - component: {fileID: 865425069}
   - component: {fileID: 865425070}
+  - component: {fileID: 865425071}
   m_Layer: 5
   m_Name: BarraVida
   m_TagString: Untagged
@@ -35971,10 +35972,24 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 1
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &865425071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865425067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 59d4dab6de02d9f81a5ae74bbfbb883c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sliderVida: {fileID: 865425070}
+  canna: {fileID: 0}
 --- !u!1 &893959356
 GameObject:
   m_ObjectHideFlags: 0
@@ -37271,7 +37286,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -40808,6 +40823,7 @@ MonoBehaviour:
   posicionCaja: {fileID: 1077463876}
   isAttacking: 0
   vida: 200
+  barraVida: {fileID: 865425071}
   velocidadDeMovimiento: 110
   suavizadoDeMovimiento: 0.1
   fuerzaDeSalto: 160
