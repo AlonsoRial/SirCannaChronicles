@@ -40822,7 +40822,7 @@ MonoBehaviour:
   dimensionesCaja: {x: 0.6, y: 0.43}
   posicionCaja: {fileID: 1077463876}
   isAttacking: 0
-  vida: 200
+  vida: 50
   barraVida: {fileID: 865425071}
   velocidadDeMovimiento: 110
   suavizadoDeMovimiento: 0.1

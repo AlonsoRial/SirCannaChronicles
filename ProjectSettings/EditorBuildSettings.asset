@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SirCannaChronicles.unity
     guid: fe087bec706530647b36218ca2d7bf8c
+  - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 173c6f8633210caeca8bbec5df81dbbb
   m_configObjects: {}
