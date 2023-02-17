@@ -106,8 +106,8 @@ public class Enemigo : MonoBehaviour
 
 
         if (vida <= 0) {
-            
-            
+            animator.SetTrigger("Muerte");
+
             Muerte();
             
         }
@@ -118,8 +118,8 @@ public class Enemigo : MonoBehaviour
 
 
     private void Muerte() {
-        animator.SetTrigger("Muerte");
-        
+  
+
         Destroy(gameObject, 1.00f);
     }
 

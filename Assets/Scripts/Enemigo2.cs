@@ -39,6 +39,9 @@ public class Enemigo2 : MonoBehaviour
 
         if (vida <= 0)
         {
+            this.transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
+            this.transform.GetComponent<BoxCollider2D>().enabled = false;
+            rb2D.constraints = RigidbodyConstraints2D.FreezePositionX;
             animator.SetTrigger("Muerte");
             Muerte();
         }
