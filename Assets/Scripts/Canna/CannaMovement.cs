@@ -5,6 +5,12 @@ using UnityEngine;
 
 public class CannaMovement : MonoBehaviour
 {
+    public AudioClip soniAtaque;
+    public AudioClip soniDanyo;
+    public AudioClip soniMuerte;
+    public AudioClip soniGuerra;
+    public AudioSource source { get { return GetComponent<AudioSource>(); } }
+
     [SerializeField] public Transform controladorGolpe;
     [SerializeField] public Transform controladorGolpe2;
 
@@ -75,6 +81,8 @@ public class CannaMovement : MonoBehaviour
 
     private void Start()
     {
+
+        gameObject.AddComponent<AudioSource>();
         rb2D = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
@@ -83,7 +91,7 @@ public class CannaMovement : MonoBehaviour
 
     private void Update()
     {
-
+        MetodoSoniGuerra();
         Attack();
 
         MovimientoHorizontal = Input.GetAxisRaw("Horizontal") * velocidadDeMovimiento;
@@ -103,13 +111,30 @@ public class CannaMovement : MonoBehaviour
     void Attack() {
 
         if (Input.GetKeyDown(KeyCode.F) && !isAttacking) {
-            
+
+
+            source.PlayOneShot(soniAtaque);
             isAttacking = true;
+            
 
         }
 
 
 
+
+    }
+
+    void MetodoSoniGuerra()
+    {
+        if (Input.GetKeyDown(KeyCode.K) )
+        {
+
+
+            source.PlayOneShot(soniGuerra);
+         
+
+
+        }
 
     }
 
@@ -159,11 +184,15 @@ public class CannaMovement : MonoBehaviour
 
     public void RecibirDanyo(float danyo)
     {
+
+        source.PlayOneShot(soniDanyo);
         animator.SetTrigger("Hit");
         vida -= danyo;
 		barraVida.RestarVida(danyo);
         if(vida <= 0)
         {
+
+            source.PlayOneShot(soniMuerte);
             Muerte();
         }
 
