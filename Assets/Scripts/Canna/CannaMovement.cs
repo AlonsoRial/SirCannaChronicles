@@ -24,6 +24,7 @@ public class CannaMovement : MonoBehaviour
     private Rigidbody2D rb2D;
 
     [SerializeField] private float vida = 200;
+	[SerializeField] private BarraVida barraVida;
 
     //no sirve para nada, es solo para ordenar el codigo, como si fuera el Head del html
     [Header("Movimiento")]
@@ -77,6 +78,7 @@ public class CannaMovement : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
 
         animator = GetComponent<Animator>();
+		barraVida.InicializarBarraVida(vida);
     }
 
     private void Update()
@@ -159,7 +161,7 @@ public class CannaMovement : MonoBehaviour
     {
         animator.SetTrigger("Hit");
         vida -= danyo;
-
+		barraVida.RestarVida(danyo);
         if(vida <= 0)
         {
             Muerte();
@@ -177,6 +179,7 @@ public class CannaMovement : MonoBehaviour
     public void Muerte()
     {
         animator.SetTrigger("Muerte");
+		barraVida.Destruir(5f);
         Destroy(gameObject, 5f);
     }
 
