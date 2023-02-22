@@ -168,6 +168,11 @@ public class CannaMovement : MonoBehaviour
 
     }
 
+    public void RecuperaVida(int salud)
+    {
+        this.vida = this.vida + salud;
+    }
+
 
     public void Muerte()
     {

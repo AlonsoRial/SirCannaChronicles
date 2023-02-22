@@ -27,7 +27,7 @@ public class Enemigo : MonoBehaviour
 
     private Animator animator;
 
-
+    private bool estaRecibiendo;
 
 
     private void Start()
@@ -72,22 +72,26 @@ public class Enemigo : MonoBehaviour
     public void Golperar()
     {
 
-        animator.SetTrigger("Golpear");
-
-
-        Collider2D[] objetos = Physics2D.OverlapBoxAll(posicionCaja.position, dimensionesCaja, 0f);
-
-
-        foreach (Collider2D colisionador in objetos)
+        if (estaRecibiendo == false)
         {
-            if (colisionador.CompareTag("Player"))
+
+            animator.SetTrigger("Golpear");
+
+
+            Collider2D[] objetos = Physics2D.OverlapBoxAll(posicionCaja.position, dimensionesCaja, 0f);
+
+
+            foreach (Collider2D colisionador in objetos)
             {
-                colisionador.transform.GetComponent<CannaMovement>().RecibirDanyo(danyoGolpe);
+                if (colisionador.CompareTag("Player"))
+                {
+                    colisionador.transform.GetComponent<CannaMovement>().RecibirDanyo(danyoGolpe);
+                }
+
             }
 
         }
-
-
+        else estaRecibiendo = false;
 
 
     }
@@ -102,18 +106,20 @@ public class Enemigo : MonoBehaviour
 
 
         if (vida <= 0) {
-            
-            
+            animator.SetTrigger("Muerte");
+
             Muerte();
             
         }
+
+        estaRecibiendo = true;
 
     }
 
 
     private void Muerte() {
-        animator.SetTrigger("Muerte");
-        
+  
+
         Destroy(gameObject, 1.00f);
     }
 
