@@ -201,6 +201,7 @@ public class CannaMovement : MonoBehaviour
 
     public void RecuperaVida(int salud)
     {
+        barraVida.SumarVida(salud);
         this.vida = this.vida + salud;
     }
 

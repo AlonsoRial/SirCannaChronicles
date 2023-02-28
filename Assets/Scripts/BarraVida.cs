@@ -21,6 +21,12 @@ public class BarraVida : MonoBehaviour
         sliderVida.value -= danyo;
     }
 
+    public void SumarVida(float salud)
+    {
+        sliderVida.value += salud;
+    }
+
+
     public void Destruir(float delay)
     {
         Destroy(gameObject, delay);
