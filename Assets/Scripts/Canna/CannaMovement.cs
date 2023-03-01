@@ -213,8 +213,13 @@ public class CannaMovement : MonoBehaviour
         animator.SetTrigger("Muerte");
 		barraVida.Destruir(5f);
         Destroy(gameObject, 5f);
-        SceneManager.LoadScene(2);
+        StartCoroutine(WaitForSceneLoad(1));
     }
+
+	private IEnumerator WaitForSceneLoad(int seconds) {
+ 		yield return new WaitForSeconds(seconds);
+ 		SceneManager.LoadScene(2);
+	}
 
 
 
