@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CannaMovement : MonoBehaviour
 {
@@ -203,6 +204,7 @@ public class CannaMovement : MonoBehaviour
     {
         barraVida.SumarVida(salud);
         this.vida = this.vida + salud;
+        barraVida.SumarVida(salud);
     }
 
 
@@ -211,6 +213,7 @@ public class CannaMovement : MonoBehaviour
         animator.SetTrigger("Muerte");
 		barraVida.Destruir(5f);
         Destroy(gameObject, 5f);
+        SceneManager.LoadScene(2);
     }
 
 
