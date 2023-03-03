@@ -5,6 +5,10 @@ using UnityEngine;
 
 public class Enemigo2 : MonoBehaviour
 {
+
+    //Igual que el Script Enemigo, pero con la diferencia de en vez de que los metodos los llama por el update, los llama en su mayoria
+    //el Script de InglesCaminarBehaviour, el cual es un Script que se ejecuta y se llama durante una animación
+
     private Animator animator;
     public Rigidbody2D rb2D;
     public Transform jugador;
@@ -67,7 +71,7 @@ public class Enemigo2 : MonoBehaviour
 
     }
 
-
+    //Este metodo es llamado poro un fotograma, cuando se realiza este fotograma de una animación, llamara a este metodo, funciona igual que el metodo de ataque del enemigo
     public void Ataque()
     {
         Collider2D[] objectos = Physics2D.OverlapCircleAll(controladorAtaque.position, radioAtaque);
