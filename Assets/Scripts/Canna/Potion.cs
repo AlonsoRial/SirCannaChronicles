@@ -6,6 +6,10 @@ public class Potion : MonoBehaviour
 {
     // Start is called before the first frame update
 
+    /*
+     Basicamente, la pocion tiene una hitbox, cuando este detecta a Canna, llama a su metodo de recuperar vida y la poción de autodestruye
+     */
+
     [SerializeField] private Transform controlador;
 
     [SerializeField] private GameObject canna;

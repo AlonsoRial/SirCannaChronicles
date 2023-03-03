@@ -13,6 +13,9 @@ public class Transition1Script : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        //Lo mismo que con el Script Idle, pero se ejecuta en la transicion que hay cuando la animación de ataque esta finalizada
+        //haciendo que con lo mismo, en vez hacer el ataque 1, haga el ataque 2 en forma de combo, el resto el igual
+
         if (CannaMovement.instance.isAttacking) {
             CannaMovement.instance.animator.Play("atk2");
 
