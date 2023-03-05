@@ -19,6 +19,7 @@ public class GameoverScript : MonoBehaviour
     
     public void Menu()
     {
+        // Volver al menú principal
         SceneManager.LoadScene(0);
     }
     
