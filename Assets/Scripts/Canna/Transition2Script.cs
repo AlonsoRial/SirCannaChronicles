@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Transition2Script : StateMachineBehaviour
 {
+
+    //Final del combo, Canna vuelve al Idle
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     //override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{

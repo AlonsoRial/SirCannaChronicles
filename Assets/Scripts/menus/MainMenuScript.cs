@@ -18,8 +18,10 @@ public class MainMenuScript : MonoBehaviour
 
     void Update()
     {
+        // A cada frame se comprueba si el jugador ha presionado la tecla escape
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            // Si la presiona y está dentro del menú de opciones, este se cierra
             if (menuOpciones.activeInHierarchy)
             {
                 menuOpciones.SetActive(false);
@@ -30,11 +32,13 @@ public class MainMenuScript : MonoBehaviour
 
     public void Jugar()
     {
+        // Cargar la escena del juego
         SceneManager.LoadScene(1);
     }
 
     public void Salir()
     {
+        // Cerrar todo el juego
         Application.Quit();
     }
 
